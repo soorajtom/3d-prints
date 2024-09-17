@@ -10,7 +10,7 @@ ring_height_plug = 4;          // Height (thickness) of both rings
 dimple_diameter = 4.25;      // Diameter of the cylindrical dimples (magnet holes)
 dimple_depth = 1.8;         // Depth of the dimples
 
-num_dimples_part1 = 5;    // Number of dimples in Part 1
+num_dimples_part1 = 3;    // Number of dimples in Part 1
 num_dimples_part2 = 4;    // Number of dimples in Part 2
 
 bearing_height = 6;
@@ -66,7 +66,7 @@ module ring_with_cylinder_and_dimples(num_dimples) {
         }
     }
     
-    translate([0, 0, bearing_height]) {
+    translate([0, 0, ring_height_plug]) {
         difference() {
             cylinder(d = bearing_hole_diameter, h = bearing_height + bearing_lip);
             cube([100, 2, 100], center = true);
@@ -77,4 +77,4 @@ module ring_with_cylinder_and_dimples(num_dimples) {
 
 // Display Part 1 and Part 2
 translate([-ring_outer_diameter/1.9, 0, 0]) ring_with_dimples(num_dimples_part1); // Left part with 5 dimples
-translate([ring_outer_diameter/1.9, 0, 0]) ring_with_cylinder_and_dimples(num_dimples_part2); // Right part with 6 dimples and central solid cylinder
+// translate([ring_outer_diameter/1.9, 0, 0]) ring_with_cylinder_and_dimples(num_dimples_part2); // Right part with 6 dimples and central solid cylinder
